@@ -6,9 +6,6 @@
 
 ---
 
-## Демо
+## Сайт
 
-Сайт можно открыть через GitHub Pages:
-
-```text
-https://pimenov01.github.io/music_maker/
+[Открыть сайт](https://pimenov01.github.io/music_maker/)
