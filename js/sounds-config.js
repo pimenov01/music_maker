@@ -1,0 +1,133 @@
+export const soundCategories = [
+  {
+    id: "ambient",
+    title: "Ambient",
+    subtitle: "Пустота, корабли, города-ульи и тревожное ожидание",
+    icon: "assets/icons/ambient.svg",
+    sounds: [
+      {
+        id: "void-choir",
+        title: "Void Choir",
+        description: "Мрачный хор пустоты",
+        file: "sounds/ambient/void-choir.mp3",
+        icon: "assets/icons/void-choir.svg",
+        defaultVolume: 0.45,
+      },
+      {
+        id: "hive-city",
+        title: "Hive City",
+        description: "Гул огромного города-улья",
+        file: "sounds/ambient/hive-city.mp3",
+        icon: "assets/icons/hive-city.svg",
+        defaultVolume: 0.4,
+      },
+      {
+        id: "derelict-ship",
+        title: "Derelict Ship",
+        description: "Заброшенный корабль в варпе",
+        file: "sounds/ambient/derelict-ship.mp3",
+        icon: "assets/icons/derelict-ship.svg",
+        defaultVolume: 0.5,
+      },
+    ],
+  },
+
+  {
+    id: "battle",
+    title: "Battle",
+    subtitle: "Битвы, осады, тревога и тяжёлый марш",
+    icon: "assets/icons/battle.svg",
+    sounds: [
+      {
+        id: "skirmish",
+        title: "Skirmish",
+        description: "Локальная перестрелка",
+        file: "sounds/battle/skirmish.mp3",
+        icon: "assets/icons/skirmish.svg",
+        defaultVolume: 0.5,
+      },
+      {
+        id: "siege",
+        title: "Siege",
+        description: "Тяжёлая осада",
+        file: "sounds/battle/siege.mp3",
+        icon: "assets/icons/siege.svg",
+        defaultVolume: 0.45,
+      },
+      {
+        id: "exterminatus",
+        title: "Exterminatus",
+        description: "Кульминационный бой",
+        file: "sounds/battle/exterminatus.mp3",
+        icon: "assets/icons/exterminatus.svg",
+        defaultVolume: 0.35,
+      },
+    ],
+  },
+
+  {
+    id: "effects",
+    title: "Effects",
+    subtitle: "Отдельные звуковые слои и технические шумы",
+    icon: "assets/icons/effects.svg",
+    sounds: [
+      {
+        id: "vox-static",
+        title: "Vox Static",
+        description: "Помехи вокс-связи",
+        file: "sounds/effects/vox-static.mp3",
+        icon: "assets/icons/vox-static.svg",
+        defaultVolume: 0.35,
+      },
+      {
+        id: "machine-spirit",
+        title: "Machine Spirit",
+        description: "Гул древнего механизма",
+        file: "sounds/effects/machine-spirit.mp3",
+        icon: "assets/icons/machine-spirit.svg",
+        defaultVolume: 0.4,
+      },
+      {
+        id: "servo-skull",
+        title: "Servo Skull",
+        description: "Механическое жужжание",
+        file: "sounds/effects/servo-skull.mp3",
+        icon: "assets/icons/servo-skull.svg",
+        defaultVolume: 0.3,
+      },
+    ],
+  },
+
+  {
+    id: "weather",
+    title: "Weather",
+    subtitle: "Погода мёртвых миров и индустриальных пустошей",
+    icon: "assets/icons/weather.svg",
+    sounds: [
+      {
+        id: "acid-rain",
+        title: "Acid Rain",
+        description: "Кислотный дождь",
+        file: "sounds/weather/acid-rain.mp3",
+        icon: "assets/icons/acid-rain.svg",
+        defaultVolume: 0.5,
+      },
+      {
+        id: "ash-wind",
+        title: "Ash Wind",
+        description: "Пепельный ветер",
+        file: "sounds/weather/ash-wind.mp3",
+        icon: "assets/icons/ash-wind.svg",
+        defaultVolume: 0.45,
+      },
+      {
+        id: "thunderstorm",
+        title: "Thunderstorm",
+        description: "Гроза над полем боя",
+        file: "sounds/weather/thunderstorm.mp3",
+        icon: "assets/icons/thunderstorm.svg",
+        defaultVolume: 0.55,
+      },
+    ],
+  },
+];
