@@ -10,7 +10,7 @@ export const soundCategories = [
         title: "Deep Void",
         description: "Глубокий низкий гул пустоты",
         file: "sounds/wh/ambient/deep-void.mp3",
-        icon: "assets/iconsdeep-void.png",
+        icon: "assets/icons/deep-void.png",
         defaultVolume: 0.45,
       },
       {
@@ -66,7 +66,7 @@ export const soundCategories = [
         title: "Administratum Archive",
         description: "Шелест бумаги, архив",
         file: "sounds/wh/ambient/administratum-archive.mp3",
-        icon: "assets/icons/administratum-archivep.png",
+        icon: "assets/icons/administratum-archive.png",
         defaultVolume: 0.5,
       },
     ],
