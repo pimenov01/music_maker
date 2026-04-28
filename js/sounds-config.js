@@ -36,7 +36,7 @@ export const soundCategories = [
     id: "battle",
     title: "Battle",
     subtitle: "Битвы, осады, тревога и тяжёлый марш",
-    icon: "assets/icons/battle.png",
+    icon: "assets/icons/battle1.cvg",
     sounds: [
       {
         id: "skirmish",
