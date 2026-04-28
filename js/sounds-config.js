@@ -3,7 +3,7 @@ export const soundCategories = [
     id: "ambient",
     title: "Ambient",
     subtitle: "Пустота, корабли, города-ульи и тревожное ожидание",
-    icon: "assets/icons/ambient.svg",
+    icon: "assets/icons/ambient.png",
     sounds: [
       {
         id: "void-choir",
@@ -36,7 +36,7 @@ export const soundCategories = [
     id: "battle",
     title: "Battle",
     subtitle: "Битвы, осады, тревога и тяжёлый марш",
-    icon: "assets/icons/battle.svg",
+    icon: "assets/icons/battle.png",
     sounds: [
       {
         id: "skirmish",
@@ -69,7 +69,7 @@ export const soundCategories = [
     id: "effects",
     title: "Effects",
     subtitle: "Отдельные звуковые слои и технические шумы",
-    icon: "assets/icons/effects.svg",
+    icon: "assets/icons/effects.png",
     sounds: [
       {
         id: "vox-static",
@@ -102,7 +102,7 @@ export const soundCategories = [
     id: "weather",
     title: "Weather",
     subtitle: "Погода мёртвых миров и индустриальных пустошей",
-    icon: "assets/icons/weather.svg",
+    icon: "assets/icons/weather.png",
     sounds: [
       {
         id: "acid-rain",
