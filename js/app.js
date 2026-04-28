@@ -15,6 +15,7 @@ function init() {
   registerSounds();
   renderSoundBoard();
   bindGlobalControls();
+  startProgressLoop();
 }
 
 function registerSounds() {
@@ -73,8 +74,9 @@ function createSoundCard(sound) {
 
   card.innerHTML = `
     <button class="sound-card__main" type="button" aria-label="Play ${sound.title}">
-      <div class="sound-card__icon-frame">
+      <div class="sound-card__icon-frame" style="--track-progress: 0;">
         <img class="sound-card__icon" src="${sound.icon}" alt="" />
+        <span class="sound-card__duration">--:--</span>
       </div>
 
       <div class="sound-card__content">
@@ -108,6 +110,16 @@ function createSoundCard(sound) {
   const playButton = card.querySelector(".sound-card__main");
   const slider = card.querySelector(".volume-control__slider");
   const volumeValue = card.querySelector(".volume-control__value");
+  const durationElement = card.querySelector(".sound-card__duration");
+  const audioElement = audioEngine.getAudioElement(sound.id);
+
+  audioElement.addEventListener("loadedmetadata", () => {
+    durationElement.textContent = formatTime(audioElement.duration);
+  });
+
+  if (Number.isFinite(audioElement.duration) && audioElement.duration > 0) {
+    durationElement.textContent = formatTime(audioElement.duration);
+  }
 
   playButton.addEventListener("click", async () => {
     const isPlaying = await audioEngine.toggle(sound.id);
@@ -138,4 +150,37 @@ function bindGlobalControls() {
       updateCardState(card, false);
     });
   });
+}
+
+function startProgressLoop() {
+  function updateProgress() {
+    document.querySelectorAll(".sound-card").forEach((card) => {
+      const soundId = card.dataset.soundId;
+      const iconFrame = card.querySelector(".sound-card__icon-frame");
+
+      if (!soundId || !iconFrame) {
+        return;
+      }
+
+      const isPlaying = audioEngine.isPlaying(soundId);
+      const progress = isPlaying ? audioEngine.getProgress(soundId) : 0;
+
+      iconFrame.style.setProperty("--track-progress", progress.toFixed(4));
+    });
+
+    requestAnimationFrame(updateProgress);
+  }
+
+  requestAnimationFrame(updateProgress);
+}
+
+function formatTime(seconds) {
+  if (!Number.isFinite(seconds) || seconds <= 0) {
+    return "--:--";
+  }
+
+  const minutes = Math.floor(seconds / 60);
+  const restSeconds = Math.floor(seconds % 60);
+
+  return `${minutes}:${String(restSeconds).padStart(2, "0")}`;
 }
