@@ -394,8 +394,8 @@ button {
   background:
     conic-gradient(
       from -90deg,
-      var(--gold) calc(var(--track-progress, 0) * 1turn),
-      rgba(255, 255, 255, 0.11) 0
+      var(--gold) var(--track-progress-angle, 0deg),
+      rgba(255, 255, 255, 0.14) 0
     );
 
   -webkit-mask:
@@ -408,7 +408,7 @@ button {
     linear-gradient(#000 0 0);
   mask-composite: exclude;
 
-  z-index: 2;
+  z-index: 3;
   pointer-events: none;
 }
 
