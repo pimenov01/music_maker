@@ -38,10 +38,10 @@ export const soundCategories = [
         defaultVolume: 0.5,
       },
       {
-        id: "fortress-ambience",
+        id: "fortress",
         title: "Fortress Ambience",
         description: "Древняя структура ксеносов",
-        file: "sounds/wh/ambient/fortress-ambience.mp3",
+        file: "sounds/wh/ambient/fortress.mp3",
         icon: "assets/icons/fortress-ambience.png",
         defaultVolume: 0.5,
       },
