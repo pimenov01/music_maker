@@ -365,25 +365,91 @@ button {
 }
 
 .sound-card__icon-frame {
+  position: relative;
+
   display: grid;
   place-items: center;
 
   width: 54px;
   height: 54px;
 
-  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 16px;
 
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
     rgba(255, 255, 255, 0.03);
+
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.sound-card__icon-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  padding: 2px;
+  border-radius: inherit;
+
+  background:
+    conic-gradient(
+      from -90deg,
+      var(--gold) calc(var(--track-progress, 0) * 1turn),
+      rgba(255, 255, 255, 0.11) 0
+    );
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+
+  z-index: 2;
+  pointer-events: none;
+}
+
+.sound-card__icon-frame::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(200, 169, 106, 0.11), transparent 58%),
+    rgba(0, 0, 0, 0.18);
+
+  z-index: -1;
 }
 
 .sound-card__icon {
-  width: 30px;
-  height: 30px;
+  position: relative;
+  z-index: 1;
+
+  width: 28px;
+  height: 28px;
   object-fit: contain;
   opacity: 0.9;
+
+  transform: translateY(-4px);
+}
+
+.sound-card__duration {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  z-index: 1;
+
+  transform: translateX(-50%);
+
+  color: rgba(244, 239, 227, 0.68);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
 }
 
 .sound-card__content h3 {
@@ -527,6 +593,16 @@ button {
   .sound-card__icon-frame {
     width: 46px;
     height: 46px;
+  }
+
+  .sound-card__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sound-card__duration {
+    bottom: 5px;
+    font-size: 8px;
   }
 
   .volume-control {
