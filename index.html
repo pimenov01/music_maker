@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>DND Music Generator</title>
+
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <div class="page-bg"></div>
+  <div class="page-overlay"></div>
+
+  <main class="app">
+    <header class="hero">
+      <div class="hero__label">DND / Warhammer 40K Sound Console</div>
+      <h1>Music Generator</h1>
+      <p>
+        Собери атмосферу сцены: пустотный эмбиент, дождь, гул машин, бой,
+        вокс-помехи и звуки далёкой войны.
+      </p>
+
+      <div class="global-controls">
+        <button class="global-button" id="stopAllButton">
+          Остановить всё
+        </button>
+      </div>
+    </header>
+
+    <section class="sound-board" id="soundBoard"></section>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
