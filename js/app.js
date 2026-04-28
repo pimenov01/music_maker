@@ -74,7 +74,7 @@ function createSoundCard(sound) {
 
   card.innerHTML = `
     <button class="sound-card__main" type="button" aria-label="Play ${sound.title}">
-      <div class="sound-card__icon-frame" style="--track-progress: 0;">
+      <div class="sound-card__icon-frame" style="--track-progress-angle: 0deg;">
         <img class="sound-card__icon" src="${sound.icon}" alt="" />
         <span class="sound-card__duration">--:--</span>
       </div>
@@ -164,8 +164,9 @@ function startProgressLoop() {
 
       const isPlaying = audioEngine.isPlaying(soundId);
       const progress = isPlaying ? audioEngine.getProgress(soundId) : 0;
-
-      iconFrame.style.setProperty("--track-progress", progress.toFixed(4));
+      const angle = `${progress * 360}deg`;
+      
+      iconFrame.style.setProperty("--track-progress-angle", angle);
     });
 
     requestAnimationFrame(updateProgress);
