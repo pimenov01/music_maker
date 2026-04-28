@@ -74,7 +74,7 @@ function createSoundCard(sound) {
 
   card.innerHTML = `
     <button class="sound-card__main" type="button" aria-label="Play ${sound.title}">
-      <div class="sound-card__icon-frame" style="--track-progress-angle: 0deg;">
+      <div class="sound-card__icon-frame" style="--track-progress-angle: 180deg;">
         <img class="sound-card__icon" src="${sound.icon}" alt="" />
         <span class="sound-card__duration">--:--</span>
       </div>
