@@ -137,6 +137,33 @@ export class AudioEngine {
     await Promise.all(fadePromises);
   }
 
+getAudioElement(soundId) {
+  const track = this.getTrack(soundId);
+  return track.audio;
+}
+
+getProgress(soundId) {
+  const track = this.getTrack(soundId);
+  const { audio } = track;
+
+  if (!Number.isFinite(audio.duration) || audio.duration <= 0) {
+    return 0;
+  }
+
+  return audio.currentTime / audio.duration;
+}
+
+getDuration(soundId) {
+  const track = this.getTrack(soundId);
+  const { audio } = track;
+
+  if (!Number.isFinite(audio.duration) || audio.duration <= 0) {
+    return 0;
+  }
+
+  return audio.duration;
+}
+  
   clearFade(track) {
     if (track.fadeTimer) {
       clearInterval(track.fadeTimer);
