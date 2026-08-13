@@ -41,25 +41,39 @@ function createCategoryElement(category) {
   section.dataset.category = category.id;
 
   section.innerHTML = `
-    <div class="category__header">
+    <button class="category__header" type="button" aria-expanded="true">
       <div class="category__icon-wrap">
         <img class="category__icon" src="${category.icon}" alt="" />
       </div>
 
-      <div>
+      <div class="category__title">
         <h2>${category.title}</h2>
         <p>${category.subtitle}</p>
       </div>
-    </div>
+
+      <div class="category__arrow" aria-hidden="true">
+        <span></span>
+      </div>
+    </button>
 
     <div class="category__sounds"></div>
   `;
 
   const soundsContainer = section.querySelector(".category__sounds");
+  const header = section.querySelector(".category__header");
 
   category.sounds.forEach((sound) => {
     const soundCard = createSoundCard(sound);
     soundsContainer.appendChild(soundCard);
+  });
+
+  header.addEventListener("click", () => {
+    const isCollapsed = section.classList.toggle("is-collapsed");
+
+    header.setAttribute(
+      "aria-expanded",
+      String(!isCollapsed)
+    );
   });
 
   return section;
