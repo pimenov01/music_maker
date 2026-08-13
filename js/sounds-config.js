@@ -73,6 +73,31 @@ export const soundCategories = [
   },
 
   {
+    id: "music",
+    title: "Music",
+    subtitle: "Музыка для игры",
+    icon: "assets/icons/ambient.png",
+    sounds: [
+      {
+        id: "pulse-tension",
+        title: "Pulse Tension",
+        description: "Пульсирующий напряженный",
+        file: "sounds/wh/music/pulse_tension.mp3",
+        icon: "assets/icons/deep-void.png",
+        defaultVolume: 0.45,
+      },
+      {
+        id: "terrorwave",
+        title: "Terrorwave",
+        description: "Placeholder",
+        file: "sounds/wh/music/terrorwave.mp3",
+        icon: "assets/icons/warp-rift.png",
+        defaultVolume: 0.4,
+      },
+    ],
+  },
+  
+  {
     id: "battle",
     title: "Battle",
     subtitle: "Битвы, осады, тревога и бой с боссом",
