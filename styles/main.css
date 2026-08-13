@@ -250,11 +250,18 @@ button {
   margin: 0;
   padding: 0;
 
-  border: 0;
-  color: inherit;
-  background: transparent;
+  border: none;
+  outline: none;
 
+  background: transparent !important;
+  color: inherit;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  font: inherit;
   text-align: left;
+
   cursor: pointer;
   user-select: none;
 }
