@@ -12,10 +12,17 @@ const audioEngine = new AudioEngine({
 init();
 
 function init() {
+
   registerSounds();
+
   renderSoundBoard();
+
   bindGlobalControls();
+
   startProgressLoop();
+
+  bindCategoryToggles();
+
 }
 
 function registerSounds() {
@@ -198,4 +205,27 @@ function formatTime(seconds) {
   const restSeconds = Math.floor(seconds % 60);
 
   return `${minutes}:${String(restSeconds).padStart(2, "0")}`;
+}
+
+function bindCategoryToggles() {
+  document.addEventListener("click", (event) => {
+    const header = event.target.closest(".category__header");
+
+    if (!header) {
+      return;
+    }
+
+    const category = header.closest(".category");
+
+    if (!category) {
+      return;
+    }
+
+    const isCollapsed = category.classList.toggle("is-collapsed");
+
+    header.setAttribute(
+      "aria-expanded",
+      String(!isCollapsed)
+    );
+  });
 }
