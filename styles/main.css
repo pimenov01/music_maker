@@ -240,11 +240,64 @@ button {
 }
 
 .category__header {
+  position: relative;
+
   display: flex;
   align-items: center;
   gap: 16px;
 
-  margin-bottom: 22px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  color: inherit;
+  background: transparent;
+
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+}
+
+.category__arrow {
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  margin-left: auto;
+
+  border: 1px solid rgba(200, 169, 106, 0.24);
+  border-radius: 50%;
+
+  background: rgba(200, 169, 106, 0.06);
+
+  transition:
+    transform 350ms ease,
+    border-color 200ms ease,
+    background 200ms ease;
+}
+
+.category__arrow span {
+  width: 8px;
+  height: 8px;
+
+  border-right: 1.5px solid var(--gold);
+  border-bottom: 1.5px solid var(--gold);
+
+  transform: rotate(45deg) translate(-2px, -2px);
+
+  transition: transform 350ms ease;
+}
+
+.category__header:hover .category__arrow {
+  border-color: rgba(200, 169, 106, 0.5);
+  background: rgba(200, 169, 106, 0.12);
+}
+
+.category.is-collapsed .category__arrow span {
+  transform: rotate(-45deg) translate(-2px, -2px);
 }
 
 .category__icon-wrap {
@@ -293,6 +346,23 @@ button {
 .category__sounds {
   display: grid;
   gap: 14px;
+
+  max-height: 2000px;
+  margin-top: 22px;
+
+  opacity: 1;
+  overflow: hidden;
+
+  transition:
+    max-height 450ms cubic-bezier(0.4, 0, 0.2, 1),
+    margin-top 350ms ease,
+    opacity 250ms ease;
+}
+
+.category.is-collapsed .category__sounds {
+  max-height: 0;
+  margin-top: 0;
+  opacity: 0;
 }
 
 .sound-card {
@@ -569,6 +639,12 @@ button {
     padding: 18px;
     border-radius: 22px;
   }
+
+  .category__arrow {
+  width: 30px;
+  height: 30px;
+  flex-basis: 30px;
+}
 
   .sound-card__main {
     grid-template-columns: 46px 1fr;
