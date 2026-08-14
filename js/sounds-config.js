@@ -218,6 +218,14 @@ export const soundCategories = [
         defaultVolume: 0.5,
       },
       {
+        id: "1forest_loop",
+        title: "1Forest",
+        description: "Звуки природы",
+        file: "sounds/wh/weather/1forest_loop.mp3",
+        icon: "assets/icons/light-rain.png",
+        defaultVolume: 0.5,
+      },
+      {
         id: "lightrain_loop",
         title: "Light Rain",
         description: "Дождь",
