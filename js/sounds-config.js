@@ -182,7 +182,7 @@ export const soundCategories = [
         description: "Зловещий сигнал",
         file: "sounds/wh/effects/isolated_foghorn.mp3",
         icon: "assets/icons/scanner-ping.png",
-        defaultVolume: 0.4,
+        defaultVolume: 1.0,
       },
       {
         id: "vision",
