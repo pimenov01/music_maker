@@ -12,17 +12,11 @@ const audioEngine = new AudioEngine({
 init();
 
 function init() {
-
   registerSounds();
-
   renderSoundBoard();
-
   bindGlobalControls();
-
   startProgressLoop();
-
   bindCategoryToggles();
-
 }
 
 function registerSounds() {
@@ -54,29 +48,6 @@ function renderSoundBoard() {
 
   soundBoard.appendChild(leftColumn);
   soundBoard.appendChild(rightColumn);
-
-  bindCategoryToggles();
-}
-
-function bindCategoryToggles() {
-  const headers = soundBoard.querySelectorAll(".category__header");
-
-  headers.forEach((header) => {
-    header.addEventListener("click", () => {
-      const category = header.closest(".category");
-
-      if (!category) {
-        return;
-      }
-
-      const isCollapsed = category.classList.toggle("is-collapsed");
-
-      header.setAttribute(
-        "aria-expanded",
-        String(!isCollapsed)
-      );
-    });
-  });
 }
 
 function createCategoryElement(category) {
@@ -236,10 +207,10 @@ function formatTime(seconds) {
 }
 
 function bindCategoryToggles() {
-  document.addEventListener("click", (event) => {
+  soundBoard.addEventListener("click", (event) => {
     const header = event.target.closest(".category__header");
 
-    if (!header) {
+    if (!header || !soundBoard.contains(header)) {
       return;
     }
 
