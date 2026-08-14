@@ -11,7 +11,7 @@ export const soundCategories = [
         description: "Мрачный низкий гул",
         file: "sounds/wh/ambient/Acreepy_dark.mp3",
         icon: "assets/icons/deep-void.png",
-        defaultVolume: 0.45,
+        defaultVolume: 0.5,
       },
       {
         id: "Adark_horror",
@@ -19,7 +19,7 @@ export const soundCategories = [
         description: "Мистический шум",
         file: "sounds/wh/ambient/Adark_horror.mp3",
         icon: "assets/icons/warp-rift.png",
-        defaultVolume: 0.4,
+        defaultVolume: 0.5,
       },
       {
         id: "Agrim",
@@ -27,7 +27,7 @@ export const soundCategories = [
         description: "Тревожный фон",
         file: "sounds/wh/ambient/Agrim.mp3",
         icon: "assets/icons/gellar-field.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.65,
       },
       {
         id: "Ahorror",
@@ -35,7 +35,7 @@ export const soundCategories = [
         description: "Мрачный медленный шум",
         file: "sounds/wh/ambient/Ahorror.mp3",
         icon: "assets/icons/starship-engines.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.9,
       },
       {
         id: "Amystical",
@@ -43,7 +43,7 @@ export const soundCategories = [
         description: "Загадочные туки",
         file: "sounds/wh/ambient/Amystical.mp3",
         icon: "assets/icons/fortress-ambience.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.6,
       },
       {
         id: "asylum",
@@ -51,7 +51,7 @@ export const soundCategories = [
         description: "Стоны и мольбы",
         file: "sounds/wh/ambient/asylum.mp3",
         icon: "assets/icons/busy-city.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.3,
       },
       {
         id: "crime_background",
@@ -59,7 +59,7 @@ export const soundCategories = [
         description: "Сбор улик",
         file: "sounds/wh/ambient/crime_background.mp3",
         icon: "assets/icons/cathedral-organ.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.65,
       },
       {
         id: "detective",
@@ -67,7 +67,7 @@ export const soundCategories = [
         description: "Расследование преступления",
         file: "sounds/wh/ambient/detective.mp3",
         icon: "assets/icons/administratum-archive.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.7,
       },
       {
         id: "timer_search",
@@ -83,7 +83,7 @@ export const soundCategories = [
         description: "Напряженный таймер",
         file: "sounds/wh/ambient/timer_tension.mp3",
         icon: "assets/icons/strong-wind.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.7,
       },
     ],
   },
@@ -100,7 +100,7 @@ export const soundCategories = [
         description: "Пульсирующий напряженный",
         file: "sounds/wh/music/pulse_tension.mp3",
         icon: "assets/icons/psyker-pulse.png",
-        defaultVolume: 0.45,
+        defaultVolume: 0.7,
       },
       {
         id: "terrorwave",
@@ -108,7 +108,7 @@ export const soundCategories = [
         description: "Высокие струнные, тревожная",
         file: "sounds/wh/music/terrorwave.mp3",
         icon: "assets/icons/wind-blow.png",
-        defaultVolume: 0.4,
+        defaultVolume: 0.6,
       },
     ],
   },
@@ -125,7 +125,7 @@ export const soundCategories = [
         description: "Напряженная ситуация перед боем",
         file: "sounds/wh/battle/combat-tension.m4a",
         icon: "assets/icons/combat-tension.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.8,
       },
       {
         id: "countdown",
@@ -141,7 +141,7 @@ export const soundCategories = [
         description: "Величественное, непостижимое, хоррор",
         file: "sounds/wh/battle/clock_darkness.mp3",
         icon: "assets/icons/warp-battle.png",
-        defaultVolume: 0.45,
+        defaultVolume: 0.55,
       },
       {
         id: "pursuit",
@@ -149,7 +149,7 @@ export const soundCategories = [
         description: "Напряженные струнные",
         file: "sounds/wh/battle/pursuit.mp3",
         icon: "assets/icons/daemonhost.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.32,
       },
       {
         id: "boss-fight",
@@ -157,7 +157,7 @@ export const soundCategories = [
         description: "Эпический хаос, низкие удары",
         file: "sounds/wh/battle/boss-fight.m4a",
         icon: "assets/icons/boss-fight.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.55,
       },
     ],
   },
@@ -174,7 +174,7 @@ export const soundCategories = [
         description: "Погоня",
         file: "sounds/wh/effects/chase_loop.mp3",
         icon: "assets/icons/machine-spirit.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.65,
       },
       {
         id: "isolated_foghorn",
@@ -190,7 +190,7 @@ export const soundCategories = [
         description: "Видение",
         file: "sounds/wh/effects/vision.mp3",
         icon: "assets/icons/cogitator.png",
-        defaultVolume: 0.4,
+        defaultVolume: 0.5,
       },
       {
         id: "yandere_laugh",
@@ -198,7 +198,7 @@ export const soundCategories = [
         description: "Зловещий женский смех",
         file: "sounds/wh/effects/yandere_laugh.mp3",
         icon: "assets/icons/pressure-release.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.6,
       },
     ],
   },
