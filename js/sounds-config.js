@@ -229,7 +229,7 @@ export const soundCategories = [
         id: "rain_loop",
         title: "Light rain 2",
         description: "Вторая вариация",
-        file: "sounds/wh/weather/rain_loop.mp3",
+        file: "sounds/wh/weather/rain_loop_new.mp3",
         icon: "assets/icons/thunderstorm.png",
         defaultVolume: 0.55,
       },
