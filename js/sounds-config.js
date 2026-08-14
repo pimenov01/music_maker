@@ -259,7 +259,7 @@ export const soundCategories = [
       },
       {
         id: "wind_loop",
-        title: "wind_loop",
+        title: "Wind",
         description: "Сильный ветер",
         file: "sounds/wh/weather/wind_loop.mp3",
         icon: "assets/icons/strong-wind.png",
