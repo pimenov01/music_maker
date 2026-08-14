@@ -110,22 +110,6 @@ export const soundCategories = [
         icon: "assets/icons/wind-blow.png",
         defaultVolume: 0.6,
       },
-      {
-        id: "s_test",
-        title: "STest",
-        description: "Высокие струнные, тревожная",
-        file: "sounds/wh/weather/seagull_loop.mp3",
-        icon: "assets/icons/wind-blow.png",
-        defaultVolume: 0.6,
-      },
-      {
-        id: "f_test",
-        title: "FTest",
-        description: "Высокие струнные, тревожная",
-        file: "sounds/wh/weather/forest_loop_test.mp3",
-        icon: "assets/icons/wind-blow.png",
-        defaultVolume: 0.6,
-      },
     ],
   },
   
@@ -228,14 +212,6 @@ export const soundCategories = [
       {
         id: "forest_loop",
         title: "Forest",
-        description: "Звуки природы",
-        file: "sounds/wh/weather/forest_loop.mp3",
-        icon: "assets/icons/light-rain.png",
-        defaultVolume: 0.5,
-      },
-      {
-        id: "forest_loop_test",
-        title: "Test Forest",
         description: "Звуки природы",
         file: "sounds/wh/weather/forest_loop_test.mp3",
         icon: "assets/icons/light-rain.png",
