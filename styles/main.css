@@ -223,6 +223,17 @@ button {
   gap: 22px;
 
   margin-top: 28px;
+
+  align-items: start;
+}
+
+.sound-board__column {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  min-width: 0;
+  align-self: start;
 }
 
 .category {
