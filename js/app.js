@@ -12,6 +12,7 @@ const audioEngine = new AudioEngine({
 init();
 
 function init() {
+  console.log("APP STARTED");
   registerSounds();
   renderSoundBoard();
   bindGlobalControls();
@@ -28,6 +29,7 @@ function registerSounds() {
 }
 
 function renderSoundBoard() {
+  console.log("RENDER STARTED", soundCategories);
   soundBoard.innerHTML = "";
 
   const leftColumn = document.createElement("div");
