@@ -218,10 +218,10 @@ export const soundCategories = [
         defaultVolume: 0.5,
       },
       {
-        id: "1forest_loop",
-        title: "1Forest",
+        id: "forest_loop_test",
+        title: "Test Forest",
         description: "Звуки природы",
-        file: "sounds/wh/weather/1forest_loop.mp3",
+        file: "sounds/wh/weather/forest_loop_test.mp3",
         icon: "assets/icons/light-rain.png",
         defaultVolume: 0.5,
       },
