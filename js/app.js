@@ -36,10 +36,24 @@ function registerSounds() {
 function renderSoundBoard() {
   soundBoard.innerHTML = "";
 
-  soundCategories.forEach((category) => {
+  const leftColumn = document.createElement("div");
+  leftColumn.className = "sound-board__column sound-board__column--left";
+
+  const rightColumn = document.createElement("div");
+  rightColumn.className = "sound-board__column sound-board__column--right";
+
+  soundCategories.forEach((category, index) => {
     const categoryElement = createCategoryElement(category);
-    soundBoard.appendChild(categoryElement);
+
+    if (index % 2 === 0) {
+      leftColumn.appendChild(categoryElement);
+    } else {
+      rightColumn.appendChild(categoryElement);
+    }
   });
+
+  soundBoard.appendChild(leftColumn);
+  soundBoard.appendChild(rightColumn);
 }
 
 function createCategoryElement(category) {
