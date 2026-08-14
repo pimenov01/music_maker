@@ -230,10 +230,15 @@ button {
 .sound-board__column {
   display: flex;
   flex-direction: column;
-  gap: 22px;
 
   min-width: 0;
   align-self: start;
+}
+
+.sound-board__column .category + .category {
+
+  margin-top: 22px;
+
 }
 
 .category {
