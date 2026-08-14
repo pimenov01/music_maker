@@ -56,7 +56,7 @@ export const soundCategories = [
       {
         id: "crime_background",
         title: "Сбор улик",
-        description: "Огромный собор, орган",
+        description: "Сбор улик",
         file: "sounds/wh/ambient/crime_background.mp3",
         icon: "assets/icons/cathedral-organ.png",
         defaultVolume: 0.5,
@@ -105,7 +105,7 @@ export const soundCategories = [
       {
         id: "terrorwave",
         title: "Terrorwave",
-        description: "Placeholder",
+        description: "Высокие струнные, тревожная",
         file: "sounds/wh/music/terrorwave.mp3",
         icon: "assets/icons/wind-blow.png",
         defaultVolume: 0.4,
@@ -116,7 +116,7 @@ export const soundCategories = [
   {
     id: "battle",
     title: "Battle",
-    subtitle: "Битвы, осады, тревога и бой с боссом",
+    subtitle: "Битвы, тревога и бой с боссом",
     icon: "assets/icons/battle.png",
     sounds: [
       {
@@ -206,7 +206,7 @@ export const soundCategories = [
   {
     id: "weather",
     title: "Weather",
-    subtitle: "Погода мертвых миров и индустриальных пустошей",
+    subtitle: "Погодные эффекты разных мест",
     icon: "assets/icons/weather.png",
     sounds: [
       {
