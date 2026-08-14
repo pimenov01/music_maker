@@ -54,6 +54,29 @@ function renderSoundBoard() {
 
   soundBoard.appendChild(leftColumn);
   soundBoard.appendChild(rightColumn);
+
+  bindCategoryToggles();
+}
+
+function bindCategoryToggles() {
+  const headers = soundBoard.querySelectorAll(".category__header");
+
+  headers.forEach((header) => {
+    header.addEventListener("click", () => {
+      const category = header.closest(".category");
+
+      if (!category) {
+        return;
+      }
+
+      const isCollapsed = category.classList.toggle("is-collapsed");
+
+      header.setAttribute(
+        "aria-expanded",
+        String(!isCollapsed)
+      );
+    });
+  });
 }
 
 function createCategoryElement(category) {
@@ -86,15 +109,6 @@ function createCategoryElement(category) {
   category.sounds.forEach((sound) => {
     const soundCard = createSoundCard(sound);
     soundsContainer.appendChild(soundCard);
-  });
-
-  header.addEventListener("click", () => {
-    const isCollapsed = section.classList.toggle("is-collapsed");
-
-    header.setAttribute(
-      "aria-expanded",
-      String(!isCollapsed)
-    );
   });
 
   return section;
