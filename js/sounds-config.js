@@ -244,7 +244,7 @@ export const soundCategories = [
         id: "chase_loop",
         title: "Chase Loop",
         description: "Погоня",
-        file: "sounds/wh/effects/chase_loop.mp3",
+        file: "sounds/wh/effects/chase_loop.wav",
         icon: "assets/icons/machine-spirit.png",
         defaultVolume: 0.65,
       },
