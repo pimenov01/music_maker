@@ -281,6 +281,14 @@ export const soundCategories = [
         defaultVolume: 0.6,
       },
       {
+        id: "loony1",
+        title: "Loony Loop1",
+        description: "Тревожная бас-гитара",
+        file: "sounds/wh/effects/Loony1.mp3",
+        icon: "assets/icons/daemonhost.png",
+        defaultVolume: 0.6,
+      },
+      {
         id: "fireplace",
         title: "Fireplace",
         description: "Камин без музыки",
