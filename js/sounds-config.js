@@ -19,7 +19,7 @@ export const soundCategories = [
         description: "Мистический шум",
         file: "sounds/wh/ambient/Adark_horror.mp3",
         icon: "assets/icons/warp-rift.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.3,
       },
       {
         id: "Agrim",
@@ -116,7 +116,7 @@ export const soundCategories = [
         description: "Первая часть",
         file: "sounds/wh/music/01_Jazz.mp3",
         icon: "assets/icons/warp-battle.png",
-        defaultVolume: 0.6,
+        defaultVolume: 0.3,
       },
       {
         id: "02_Jazz",
@@ -124,7 +124,7 @@ export const soundCategories = [
         description: "Вторая часть",
         file: "sounds/wh/music/02_Jazz.mp3",
         icon: "assets/icons/warp-battle.png",
-        defaultVolume: 0.6,
+        defaultVolume: 0.3,
       },
       {
         id: "03_Jazz",
@@ -132,7 +132,7 @@ export const soundCategories = [
         description: "Третья часть",
         file: "sounds/wh/music/03_Jazz.mp3",
         icon: "assets/icons/warp-battle.png",
-        defaultVolume: 0.6,
+        defaultVolume: 0.3,
       },
       {
         id: "04_Jazz",
@@ -140,7 +140,7 @@ export const soundCategories = [
         description: "Четвертая часть",
         file: "sounds/wh/music/04_Jazz.mp3",
         icon: "assets/icons/warp-battle.png",
-        defaultVolume: 0.6,
+        defaultVolume: 0.3,
       },
       {
         id: "01_Innsmouth",
@@ -148,7 +148,7 @@ export const soundCategories = [
         description: "Первая часть",
         file: "sounds/wh/music/01_Innsmouth.mp3",
         icon: "assets/icons/light-rain.png",
-        defaultVolume: 0.6,
+        defaultVolume: 0.45,
       },
       {
         id: "02_Innsmouth",
@@ -156,7 +156,7 @@ export const soundCategories = [
         description: "Вторая часть",
         file: "sounds/wh/music/02_Innsmouth.mp3",
         icon: "assets/icons/light-rain.png",
-        defaultVolume: 0.6,
+        defaultVolume: 0.45,
       },
       {
         id: "03_Innsmouth",
@@ -164,7 +164,7 @@ export const soundCategories = [
         description: "Третья часть",
         file: "sounds/wh/music/03_Innsmouth.mp3",
         icon: "assets/icons/light-rain.png",
-        defaultVolume: 0.6,
+        defaultVolume: 0.45,
       },
       {
         id: "04_Innsmouth",
@@ -172,7 +172,7 @@ export const soundCategories = [
         description: "Четвертая часть",
         file: "sounds/wh/music/04_Innsmouth.mp3",
         icon: "assets/icons/light-rain.png",
-        defaultVolume: 0.6,
+        defaultVolume: 0.45,
       },
       {
         id: "05_Innsmouth",
@@ -180,7 +180,7 @@ export const soundCategories = [
         description: "Пятая часть",
         file: "sounds/wh/music/05_Innsmouth.mp3",
         icon: "assets/icons/light-rain.png",
-        defaultVolume: 0.6,
+        defaultVolume: 0.45,
       },
     ],
   },
@@ -205,7 +205,7 @@ export const soundCategories = [
         description: "Неизбежная катастрофа",
         file: "sounds/wh/battle/countdown.m4a",
         icon: "assets/icons/countdown.png",
-        defaultVolume: 0.45,
+        defaultVolume: 0.30,
       },
       {
         id: "clock_darkness",
@@ -246,7 +246,7 @@ export const soundCategories = [
         description: "Погоня",
         file: "sounds/wh/effects/chase_loop.wav",
         icon: "assets/icons/machine-spirit.png",
-        defaultVolume: 0.65,
+        defaultVolume: 0.45,
       },
       {
         id: "isolated_foghorn",
@@ -262,7 +262,7 @@ export const soundCategories = [
         description: "Видение",
         file: "sounds/wh/effects/vision.mp3",
         icon: "assets/icons/cogitator.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.35,
       },
       {
         id: "yandere_laugh",
@@ -278,7 +278,7 @@ export const soundCategories = [
         description: "Тревожная бас-гитара",
         file: "sounds/wh/effects/Loony1.mp3",
         icon: "assets/icons/daemonhost.png",
-        defaultVolume: 0.6,
+        defaultVolume: 0.25,
       },
       {
         id: "fireplace",
@@ -286,7 +286,7 @@ export const soundCategories = [
         description: "Камин без музыки",
         file: "sounds/wh/effects/fireplace.mp3",
         icon: "assets/icons/countdown.png",
-        defaultVolume: 0.6,
+        defaultVolume: 0.85,
       },
     ],
   },
@@ -303,7 +303,7 @@ export const soundCategories = [
         description: "Звуки природы",
         file: "sounds/wh/weather/forest_loop_test.mp3",
         icon: "assets/icons/light-rain.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.7,
       },
       {
         id: "lightrain_loop",
@@ -311,7 +311,7 @@ export const soundCategories = [
         description: "Дождь",
         file: "sounds/wh/weather/light_rain_loop_new.mp3",
         icon: "assets/icons/heavy-rain.png",
-        defaultVolume: 0.45,
+        defaultVolume: 0.80,
       },
       {
         id: "rain_loop",
@@ -319,7 +319,7 @@ export const soundCategories = [
         description: "Вторая вариация",
         file: "sounds/wh/weather/rain_loop_new.mp3",
         icon: "assets/icons/thunderstorm.png",
-        defaultVolume: 0.55,
+        defaultVolume: 0.40,
       },
       {
         id: "seagull_loop",
@@ -327,7 +327,7 @@ export const soundCategories = [
         description: "Чайки далеко",
         file: "sounds/wh/weather/seagull_loop.mp3",
         icon: "assets/icons/deep-void.png",
-        defaultVolume: 0.55,
+        defaultVolume: 0.85,
       },
       {
         id: "seawaves_loop",
@@ -335,7 +335,7 @@ export const soundCategories = [
         description: "Волны близко",
         file: "sounds/wh/weather/seawaves_loop.mp3",
         icon: "assets/icons/fortress-ambience.png",
-        defaultVolume: 0.45,
+        defaultVolume: 0.10,
       },
       {
         id: "thunderstorm_loop",
@@ -343,7 +343,7 @@ export const soundCategories = [
         description: "Гроза и дождь",
         file: "sounds/wh/weather/thurderstopm_loop_new.mp3",
         icon: "assets/icons/daemonhost.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.3,
       },
       {
         id: "wind_loop",
@@ -351,7 +351,7 @@ export const soundCategories = [
         description: "Сильный ветер",
         file: "sounds/wh/weather/wind_loop_new.mp3",
         icon: "assets/icons/strong-wind.png",
-        defaultVolume: 0.5,
+        defaultVolume: 0.4,
       },
     ],
   },
