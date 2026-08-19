@@ -6,7 +6,7 @@ export const soundCategories = [
     icon: "assets/icons/ambient.png",
     sounds: [
       {
-        id: "Acreepy_dark",
+        id: "Acreepy_dark 1",
         title: "A Creepy Dark",
         description: "Мрачный низкий гул",
         file: "sounds/wh/ambient/Acreepy_dark.wav",
