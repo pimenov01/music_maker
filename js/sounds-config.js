@@ -276,7 +276,7 @@ export const soundCategories = [
         id: "loony",
         title: "Loony Loop",
         description: "Тревожная бас-гитара",
-        file: "sounds/wh/effects/Loony.mp3",
+        file: "sounds/wh/effects/Loony.wav",
         icon: "assets/icons/daemonhost.png",
         defaultVolume: 0.6,
       },
