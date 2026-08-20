@@ -4,21 +4,55 @@ export class AudioEngine {
 
     this.fadeDuration = options.fadeDuration ?? 900;
     this.fadeStep = options.fadeStep ?? 30;
+
+    this.audioContext = null;
+  }
+
+  getContext() {
+    if (!this.audioContext) {
+      this.audioContext = new AudioContext();
+    }
+
+    return this.audioContext;
+  }
+
+  async ensureContext() {
+    const context = this.getContext();
+
+    if (context.state === "suspended") {
+      await context.resume();
+    }
+
+    return context;
   }
 
   registerSound(sound) {
+    // Оставляем Audio-элемент для совместимости с существующим UI:
+    // получение duration и другие обращения к аудио продолжают работать.
     const audio = new Audio(sound.file);
 
-    audio.loop = true;
     audio.preload = "auto";
-    audio.volume = 0;
 
-    this.tracks.set(sound.id, {
+    const track = {
       audio,
+
       targetVolume: sound.defaultVolume ?? 0.5,
+
       isPlaying: false,
+
       fadeTimer: null,
-    });
+
+      buffer: null,
+      source: null,
+      gainNode: null,
+
+      loadingPromise: null,
+
+      startedAt: 0,
+      offset: 0,
+    };
+
+    this.tracks.set(sound.id, track);
   }
 
   getTrack(soundId) {
@@ -29,6 +63,44 @@ export class AudioEngine {
     }
 
     return track;
+  }
+
+  async loadBuffer(soundId) {
+    const track = this.getTrack(soundId);
+
+    if (track.buffer) {
+      return track.buffer;
+    }
+
+    if (track.loadingPromise) {
+      return track.loadingPromise;
+    }
+
+    const context = this.getContext();
+
+    track.loadingPromise = fetch(track.audio.src)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            `Failed to load audio: ${response.status} ${response.statusText}`
+          );
+        }
+
+        return response.arrayBuffer();
+      })
+      .then((arrayBuffer) => {
+        return context.decodeAudioData(arrayBuffer);
+      })
+      .then((buffer) => {
+        track.buffer = buffer;
+        return buffer;
+      })
+      .catch((error) => {
+        track.loadingPromise = null;
+        throw error;
+      });
+
+    return track.loadingPromise;
   }
 
   async toggle(soundId) {
@@ -45,60 +117,114 @@ export class AudioEngine {
 
   async fadeIn(soundId) {
     const track = this.getTrack(soundId);
-    const { audio } = track;
 
     this.clearFade(track);
 
-    audio.volume = 0;
-
     try {
-      await audio.play();
+      const context = await this.ensureContext();
+      const buffer = await this.loadBuffer(soundId);
+
+      // Если за время загрузки пользователь уже включил/выключил звук,
+      // не создаём второй источник.
+      if (track.isPlaying) {
+        return;
+      }
+
+      const source = context.createBufferSource();
+      const gainNode = context.createGain();
+
+      source.buffer = buffer;
+
+      // Главное отличие от HTMLAudio:
+      // loop происходит непосредственно внутри Web Audio API.
+      source.loop = true;
+      source.loopStart = 0;
+      source.loopEnd = buffer.duration;
+
+      gainNode.gain.value = 0;
+
+      source.connect(gainNode);
+      gainNode.connect(context.destination);
+
+      const now = context.currentTime;
+
+      source.start(now);
+
+      track.source = source;
+      track.gainNode = gainNode;
+      track.startedAt = now;
+      track.offset = 0;
+      track.isPlaying = true;
+
+      const targetVolume = track.targetVolume;
+
+      // Плавный fade-in через Web Audio API.
+      gainNode.gain.cancelScheduledValues(now);
+      gainNode.gain.setValueAtTime(0, now);
+      gainNode.gain.linearRampToValueAtTime(
+        targetVolume,
+        now + this.fadeDuration / 1000
+      );
     } catch (error) {
       console.error("Audio play was blocked or failed:", error);
-      return;
+
+      track.isPlaying = false;
+      track.source = null;
+      track.gainNode = null;
     }
-
-    track.isPlaying = true;
-
-    const targetVolume = track.targetVolume;
-    const steps = Math.max(1, this.fadeDuration / this.fadeStep);
-    const volumeIncrement = targetVolume / steps;
-
-    track.fadeTimer = setInterval(() => {
-      const nextVolume = Math.min(audio.volume + volumeIncrement, targetVolume);
-      audio.volume = nextVolume;
-
-      if (nextVolume >= targetVolume) {
-        this.clearFade(track);
-      }
-    }, this.fadeStep);
   }
 
   async fadeOut(soundId) {
     const track = this.getTrack(soundId);
-    const { audio } = track;
 
     this.clearFade(track);
 
-    const startVolume = audio.volume;
-    const steps = Math.max(1, this.fadeDuration / this.fadeStep);
-    const volumeDecrement = startVolume / steps;
+    if (!track.isPlaying || !track.source || !track.gainNode) {
+      track.isPlaying = false;
+      return;
+    }
 
-    return new Promise((resolve) => {
-      track.fadeTimer = setInterval(() => {
-        const nextVolume = Math.max(audio.volume - volumeDecrement, 0);
-        audio.volume = nextVolume;
+    const context = this.getContext();
+    const source = track.source;
+    const gainNode = track.gainNode;
 
-        if (nextVolume <= 0.001) {
-          audio.pause();
-          audio.currentTime = 0;
-          audio.volume = 0;
-          track.isPlaying = false;
+    const now = context.currentTime;
 
-          this.clearFade(track);
-          resolve();
+    // Запоминаем положение внутри трека.
+    track.offset = this.getProgress(soundId) * (
+      track.buffer?.duration || 0
+    );
+
+    gainNode.gain.cancelScheduledValues(now);
+
+    const currentGain = gainNode.gain.value;
+
+    gainNode.gain.setValueAtTime(currentGain, now);
+
+    gainNode.gain.linearRampToValueAtTime(
+      0,
+      now + this.fadeDuration / 1000
+    );
+
+    await new Promise((resolve) => {
+      setTimeout(() => {
+        try {
+          source.stop();
+        } catch {
+          // source уже мог быть остановлен
         }
-      }, this.fadeStep);
+
+        source.disconnect();
+        gainNode.disconnect();
+
+        track.source = null;
+        track.gainNode = null;
+
+        track.isPlaying = false;
+        track.offset = 0;
+
+        resolve();
+      }, this.fadeDuration);
     });
   }
 
@@ -108,18 +234,26 @@ export class AudioEngine {
 
     track.targetVolume = safeVolume;
 
-    if (track.isPlaying) {
-      track.audio.volume = safeVolume;
+    if (track.isPlaying && track.gainNode) {
+      const context = this.getContext();
+
+      track.gainNode.gain.setTargetAtTime(
+        safeVolume,
+        context.currentTime,
+        0.01
+      );
     }
   }
 
   getVolume(soundId) {
     const track = this.getTrack(soundId);
+
     return track.targetVolume;
   }
 
   isPlaying(soundId) {
     const track = this.getTrack(soundId);
+
     return track.isPlaying;
   }
 
@@ -137,33 +271,51 @@ export class AudioEngine {
     await Promise.all(fadePromises);
   }
 
-getAudioElement(soundId) {
-  const track = this.getTrack(soundId);
-  return track.audio;
-}
+  getAudioElement(soundId) {
+    const track = this.getTrack(soundId);
 
-getProgress(soundId) {
-  const track = this.getTrack(soundId);
-  const { audio } = track;
+    return track.audio;
+  }
 
-  if (!Number.isFinite(audio.duration) || audio.duration <= 0) {
+  getProgress(soundId) {
+    const track = this.getTrack(soundId);
+
+    if (!track.buffer || !track.isPlaying || !track.source) {
+      return 0;
+    }
+
+    const context = this.getContext();
+
+    const duration = track.buffer.duration;
+
+    if (!Number.isFinite(duration) || duration <= 0) {
+      return 0;
+    }
+
+    const elapsed = context.currentTime - track.startedAt;
+
+    const position = elapsed % duration;
+
+    return position / duration;
+  }
+
+  getDuration(soundId) {
+    const track = this.getTrack(soundId);
+
+    if (track.buffer && Number.isFinite(track.buffer.duration)) {
+      return track.buffer.duration;
+    }
+
+    if (
+      Number.isFinite(track.audio.duration) &&
+      track.audio.duration > 0
+    ) {
+      return track.audio.duration;
+    }
+
     return 0;
   }
 
-  return audio.currentTime / audio.duration;
-}
-
-getDuration(soundId) {
-  const track = this.getTrack(soundId);
-  const { audio } = track;
-
-  if (!Number.isFinite(audio.duration) || audio.duration <= 0) {
-    return 0;
-  }
-
-  return audio.duration;
-}
-  
   clearFade(track) {
     if (track.fadeTimer) {
       clearInterval(track.fadeTimer);
