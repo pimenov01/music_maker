@@ -6,6 +6,14 @@ export const soundCategories = [
     icon: "assets/icons/ambient.png",
     sounds: [
       {
+        id: "osc",
+        title: "OSC",
+        description: "Test",
+        file: "sounds/wh/ambient/osc.wav",
+        icon: "assets/icons/deep-void.png",
+        defaultVolume: 0.5,
+      },
+      {
         id: "Acreepy_dark",
         title: "A Creepy Dark",
         description: "Мрачный низкий гул",
