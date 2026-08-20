@@ -7,7 +7,7 @@ export const soundCategories = [
     sounds: [
       {
         id: "osc",
-        title: "OSC",
+        title: "OSC 1",
         description: "Test",
         file: "sounds/wh/ambient/osc.wav",
         icon: "assets/icons/deep-void.png",
