@@ -336,6 +336,22 @@ export const soundCategories = [
         icon: "assets/icons/cathedral-organ.png",
         defaultVolume: 0.85,
       },
+      {
+        id: "breath",
+        title: "Breath",
+        description: "Существо жутко дышит, кричит",
+        file: "sounds/wh/effects/breath.mp3",
+        icon: "assets/icons/thunderstorm.png",
+        defaultVolume: 0.85,
+      },
+      {
+        id: "eating",
+        title: "Eating",
+        description: "Существо ест",
+        file: "sounds/wh/effects/eating.wav",
+        icon: "assets/icons/strong-wind.png",
+        defaultVolume: 0.85,
+      },
     ],
   },
 
