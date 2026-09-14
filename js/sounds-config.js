@@ -294,7 +294,7 @@ export const soundCategories = [
         description: "Авария",
         file: "sounds/wh/effects/accident.mp3",
         icon: "assets/icons/light-rain.png",
-        defaultVolume: 0.85,
+        defaultVolume: 0.45,
       },
       {
         id: "big_explosion",
@@ -302,7 +302,7 @@ export const soundCategories = [
         description: "Оглушительный взрыв",
         file: "sounds/wh/effects/big_explosion.mp3",
         icon: "assets/icons/daemonhost.png",
-        defaultVolume: 0.85,
+        defaultVolume: 0.9,
       },
       {
         id: "explosion",
@@ -310,7 +310,7 @@ export const soundCategories = [
         description: "Прилет, взрыв, выбитые стекла",
         file: "sounds/wh/effects/explosion.mp3",
         icon: "assets/icons/boss-fight.png",
-        defaultVolume: 0.85,
+        defaultVolume: 0.9,
       },
       {
         id: "fire",
@@ -318,7 +318,7 @@ export const soundCategories = [
         description: "Серия выстрелов из автомата",
         file: "sounds/wh/effects/fire.mp3",
         icon: "assets/icons/psyker-pulse.png",
-        defaultVolume: 0.85,
+        defaultVolume: 0.25,
       },
       {
         id: "magnum",
@@ -326,7 +326,7 @@ export const soundCategories = [
         description: "Курок, выстрел из пистолета",
         file: "sounds/wh/effects/magnum.mp3",
         icon: "assets/icons/strong-wind.png",
-        defaultVolume: 0.85,
+        defaultVolume: 0.5,
       },
       {
         id: "bunch_shots",
@@ -342,7 +342,7 @@ export const soundCategories = [
         description: "Существо жутко дышит, кричит",
         file: "sounds/wh/effects/breath.mp3",
         icon: "assets/icons/thunderstorm.png",
-        defaultVolume: 0.85,
+        defaultVolume: 0.95,
       },
       {
         id: "eating",
@@ -350,7 +350,7 @@ export const soundCategories = [
         description: "Существо ест",
         file: "sounds/wh/effects/eating.wav",
         icon: "assets/icons/strong-wind.png",
-        defaultVolume: 0.85,
+        defaultVolume: 0.9,
       },
     ],
   },
