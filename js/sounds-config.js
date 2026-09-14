@@ -376,6 +376,14 @@ export const soundCategories = [
         icon: "assets/icons/strong-wind.png",
         defaultVolume: 0.9,
       },
+      {
+        id: "alien_creature",
+        title: "Alien",
+        description: "Визг и хрипы, эхо",
+        file: "sounds/wh/effects/alien_creature.wav",
+        icon: "assets/icons/thunderstorm.png",
+        defaultVolume: 0.9,
+      },
     ],
   },
 
