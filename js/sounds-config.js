@@ -382,7 +382,7 @@ export const soundCategories = [
         description: "Визг и хрипы, эхо",
         file: "sounds/wh/effects/alien_creature.mp3",
         icon: "assets/icons/thunderstorm.png",
-        defaultVolume: 0.9,
+        defaultVolume: 0.6,
       },
     ],
   },
